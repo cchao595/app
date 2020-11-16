@@ -1,0 +1,6 @@
+[
+  {
+    "name": "demo-app",
+    "imageUri": "652023154284.dkr.ecr.us-west-2.amazonaws.com/anycompany/demo:latest"
+  }
+]

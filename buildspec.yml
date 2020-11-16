@@ -1,0 +1,19 @@
+version: 0.2
+env:
+  variables:
+    ECR_REPO: 652023154284.dkr.ecr.us-west-2.amazonaws.com/anycompany/demo
+phases:
+  install:
+    runtime-versions:
+      docker: 18
+  build:
+    commands:
+      - echo "Building a Docker image..."
+      - docker build -t python-demo . --file Dockerfile
+      - echo "Tagging Docker image for ECR..."
+      - docker tag python-demo ${ECR_REPO}:${CODEBUILD_SOURCE_VERSION}
+      - echo "Logging into ECR.."
+      - $(aws ecr get-login --no-include-email)
+      - echo "Pushing Docker image to ECR..."
+      - docker push ${ECR_REPO}:${CODEBUILD_SOURCE_VERSION}
+      - echo "Done.""
