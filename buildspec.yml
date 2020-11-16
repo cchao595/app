@@ -13,7 +13,7 @@ phases:
       - echo "Tagging Docker image for ECR..."
       - docker tag python-demo ${ECR_REPO}:${CODEBUILD_SOURCE_VERSION}
       - echo "Logging into ECR.."
-      - $(aws ecr get-login --no-include-email)
+      - aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 652023154284.dkr.ecr.us-west-2.amazonaws.com
       - echo "Pushing Docker image to ECR..."
       - docker push ${ECR_REPO}:${CODEBUILD_SOURCE_VERSION}
       - echo "Done.""
