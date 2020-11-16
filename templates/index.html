@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block play %}
+{% for i in range(file_index) %}
+    <p><a href="/{{ video_files[i] }}"> {{ i+1 }}) {{ video_files[i] }} </a></p>
+{% endfor %}
+{% endblock %}
