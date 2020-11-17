@@ -16,4 +16,4 @@ phases:
       - aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 652023154284.dkr.ecr.us-west-2.amazonaws.com
       - echo "Pushing Docker image to ECR..."
       - docker push ${ECR_REPO}:latest
-      - echo "Done.""
+      - echo "Done."
